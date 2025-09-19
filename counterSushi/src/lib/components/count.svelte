@@ -1,14 +1,22 @@
 <svelte:head>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=remove" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </svelte:head>
 
 <script>
+    import { onMount } from "svelte";
+
     export let counter = 0;
 
     function incrementa(){counter++}
     function decrementa(){if(counter > 0) counter--}
+    function reset(){counter = 0}
+    function save(){sessionStorage.setItem("counter", counter)}
+
+    onMount(() => {
+        const saved = sessionStorage.getItem("counter");
+        if(saved !== null) counter = parseInt(counter, 10)
+    });
 </script>
 
 <div class="main-container">
@@ -16,16 +24,30 @@
     
     <div class="contanier">
         <div class="pulsante">
+            <button on:click={reset}>
+                <span class="material-symbols-outlined icon">refresh</span>
+            </button>
+        </div>
+
+        <div class="pulsante">
             <button on:click={decrementa}>
                 <span class="material-symbols-outlined icon">remove</span>
             </button>
         </div>
+
         <div class="number">
             {counter}
         </div>
+
         <div class="pulsante">
             <button on:click={incrementa}>
                 <span class="material-symbols-outlined icon">add</span>
+            </button>
+        </div>
+
+        <div class="pulsante">
+            <button on:click={save}>
+                <span class="material-symbols-outlined icon">save</span>
             </button>
         </div>
     </div>
