@@ -15,7 +15,7 @@
 
     onMount(() => {
         const saved = sessionStorage.getItem("counter");
-        if(saved !== null) counter = parseInt(counter, 10)
+        if(saved !== null) counter = parseInt(saved, 10)
     });
 </script>
 
