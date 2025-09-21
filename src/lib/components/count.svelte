@@ -100,7 +100,6 @@
     }
     
     .contanier::before {
-        content: '';
         position: absolute;
         top: -8px;
         left: -8px;
@@ -132,7 +131,6 @@
     }
     
     .pulsante button::before {
-        content: '';
         position: absolute;
         top: 0;
         left: -100%;
@@ -182,4 +180,153 @@
         position: relative;
         text-shadow: 2px 2px 4px rgba(205, 92, 92, 0.3);
     }
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+    .main-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .container {
+        gap: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 15px;
+        max-width: 400px;
+    }
+    
+    h1 {
+        margin-bottom: 1.5rem;
+    }
+    
+    h1::after {
+        margin-left: 0.3rem;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+    .main-container {
+        padding: 1rem 0.5rem;
+        justify-content: center;
+        padding-top: 2rem;
+    }
+    
+    .container {
+        flex-direction: row;
+        gap: 0.15rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        width: 95%;
+        max-width: 350px;
+        justify-content: space-between;
+    }
+    
+    h1 {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Mobile piccoli */
+@media screen and (max-width: 360px) {
+    .main-container {
+        padding: 1rem 0.25rem;
+    }
+    
+    .container {
+        padding: 0.8rem 1rem;
+        gap: 0.8rem;
+        width: 98%;
+        max-width: 340px;
+    }
+    
+    .pulsante button {
+        width: clamp(45px, 10vw, 55px);
+        height: clamp(45px, 10vw, 55px);
+    }
+    
+    .icon {
+        font-size: clamp(16px, 3.5vw, 20px);
+    }
+    
+    .number {
+        min-width: clamp(60px, 16vw, 80px);
+        height: clamp(50px, 12vw, 65px);
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+    }
+}
+
+/* Landscape mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .main-container {
+        padding: 1rem;
+        min-height: auto;
+    }
+    
+    .container {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    h1 {
+        margin-bottom: 1rem;
+        font-size: clamp(1.2rem, 3vh, 1.8rem);
+    }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+    .container {
+        border-width: 2px;
+    }
+    
+    .number {
+        border-width: 1px;
+    }
+}
+
+/* Prefixed properties per compatibilità */
+.pulsante button {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .container {
+        background: #2a2a2a;
+        border-color: #8b4513;
+        box-shadow: 
+            0 8px 32px rgba(205, 92, 92, 0.3),
+            inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    }
+    
+    .number {
+        background: radial-gradient(circle, #3a3a3a 0%, #2a2a2a 100%);
+        color: #cd5c5c;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .pulsante button {
+        transition: none;
+    }
+    
+    .pulsante button::before {
+        transition: none;
+    }
+    
+    .pulsante button:hover {
+        transform: none;
+    }
+}
 </style>
