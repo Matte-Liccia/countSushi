@@ -189,19 +189,26 @@
 .orientation-message {
     display: none; /* Nascosto di default */
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: #333;
     color: white;
+    padding: 10px;
     text-align: center;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .orientation-message .icon {
-    font-size: 48px;
-    margin-bottom: 1rem;
+    font-size: 24px;
+}
+
+.orientation-message p {
+    margin: 0;
 }
 
 /* MEDIA QUERIES */
@@ -370,12 +377,9 @@
 @media screen and (max-width: 768px) and (orientation: portrait) {
     .orientation-message {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
-    .main-container {
-        display: none;
+    :global(body) {
+        padding-bottom: 50px; /* Altezza del banner */
     }
 }
 </style>
