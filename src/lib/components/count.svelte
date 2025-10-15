@@ -209,70 +209,84 @@
 @media screen and (max-width: 480px) {
     .main-container {
         padding: 1rem 0.5rem;
-        justify-content: center;
-        padding-top: 2rem;
+        justify-content: flex-start;
+        padding-top: 1.5rem;
     }
     
     .container {
-        flex-direction: row;
-        gap: 0.15rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 12px;
-        width: 95%;
-        max-width: 350px;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        width: 90%;
     }
     
     h1 {
-        margin-bottom: 1rem;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .pulsante button {
+        width: 55px;
+        height: 55px;
+    }
+
+    .number {
+        min-width: 90px;
+        height: 70px;
+        font-size: 2.5rem;
     }
 }
 
 /* Mobile piccoli */
 @media screen and (max-width: 360px) {
-    .main-container {
-        padding: 1rem 0.25rem;
-    }
-    
     .container {
-        padding: 0.8rem 1rem;
-        gap: 0.8rem;
-        width: 98%;
-        max-width: 340px;
+        gap: 0.75rem;
+        padding: 0.75rem;
     }
-    
+
     .pulsante button {
-        width: clamp(45px, 10vw, 55px);
-        height: clamp(45px, 10vw, 55px);
+        width: clamp(48px, 13vw, 52px);
+        height: clamp(48px, 13vw, 52px);
     }
     
     .icon {
-        font-size: clamp(16px, 3.5vw, 20px);
+        font-size: clamp(18px, 5vw, 22px);
     }
     
     .number {
-        min-width: clamp(60px, 16vw, 80px);
-        height: clamp(50px, 12vw, 65px);
-        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        min-width: clamp(70px, 20vw, 80px);
+        height: clamp(60px, 15vw, 65px);
+        font-size: clamp(2rem, 8vw, 2.5rem);
     }
 }
 
 /* Landscape mobile */
 @media screen and (max-height: 500px) and (orientation: landscape) {
     .main-container {
-        padding: 1rem;
+        padding: 0.5rem;
         min-height: auto;
     }
     
     .container {
-        flex-direction: row;
-        gap: 1rem;
-        padding: 1rem 1.5rem;
+        gap: clamp(0.5rem, 2vw, 1rem);
+        padding: 0.75rem 1rem;
     }
     
     h1 {
-        margin-bottom: 1rem;
-        font-size: clamp(1.2rem, 3vh, 1.8rem);
+        margin-bottom: 0.5rem;
+        font-size: clamp(1.5rem, 5vh, 1.8rem);
+    }
+
+    .pulsante button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .number {
+        height: 60px;
+        min-width: 80px;
+        font-size: 2.2rem;
     }
 }
 
