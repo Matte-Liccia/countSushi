@@ -53,6 +53,11 @@
     </div>
 </div>
 
+<div class="orientation-message">
+    <span class="material-symbols-outlined icon">screen_rotation</span>
+    <p>Per un'esperienza migliore, ruota il tuo dispositivo.</p>
+</div>
+
 <style>
     :global(body) {
         margin: 0;
@@ -180,6 +185,27 @@
         position: relative;
         text-shadow: 2px 2px 4px rgba(205, 92, 92, 0.3);
     }
+
+.orientation-message {
+    display: none; /* Nascosto di default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+}
+
+.orientation-message .icon {
+    font-size: 48px;
+    margin-bottom: 1rem;
+}
 
 /* MEDIA QUERIES */
 
@@ -341,6 +367,15 @@
     
     .pulsante button:hover {
         transform: none;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .orientation-message {
+        display: flex;
+    }
+    .main-container {
+        display: none;
     }
 }
 </style>
