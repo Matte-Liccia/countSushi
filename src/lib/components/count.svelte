@@ -195,9 +195,6 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     z-index: 1000;
 }
@@ -373,6 +370,9 @@
 @media screen and (max-width: 768px) and (orientation: portrait) {
     .orientation-message {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .main-container {
         display: none;
